@@ -1,0 +1,70 @@
+<ion-view title="Daftar Bagi Kajian" id="page20">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ui-sref="bagiKajian" class="button button-icon icon ion-ios-plus-outline"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <form id="daftarBagiKajian-form13" class="list">
+      <label class="item item-input" id="daftarBagiKajian-search6">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="vm.frmSearch.keyword" ng-keyup="vm.searchData()" placeholder="Cari judul, ustadz, tempat...">
+      </label>
+      <ion-list id="daftarBagiKajian-list10">
+
+        <ion-item ng-repeat="item in vm.listData" class="item-thumbnail-left item-icon-right" id="daftarBagiKajian-list-item{{$index}}" ui-sref="bagiKajianEdit({id:item.id})">
+          <img src="{{item.kajian_photos[0].photo || 'img/logo.png' }}">
+          <h2>{{item.tema}}</h2>
+          <p style="white-space:normal;">
+            <b>{{item.pemateri}}</b>
+            <br>{{item.tempat}}
+            <br>{{item.nama_kota}}
+            <br>{{item.tanggal | date:'dd/MM/yyyy'}} {{item.jam_mulai}} ~ {{(item.jam_selesai)?item.jam_selesai:'Selesai'}}
+            <br>Kajian Rutin, Umum</p>
+          <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          <ion-option-button class="button-assertive">Hapus</ion-option-button>
+        </ion-item>
+        <ion-item ng-if="vm.isLoading" class="text-center">        
+          <img ng-src="img/loading.gif" alt="Loading..." />
+        </ion-item>
+
+        <!-- <ion-item ng-repeat="item in vm.listData" class="item-thumbnail-left item-icon-right" id="infoKajian-list-item{{$index}}" ui-sref="tabsKajian.detailKajian({id:item.id})">
+          <img ng-src="{{item.kajian_photos[0].photo || 'img/logo.png' }}">
+          <h2>{{item.tema}}</h2>
+          <p style="white-space:normal;">
+            <b>{{item.pemateri}}</b>
+            <br>{{item.tempat}}
+            <br>{{item.nama_kota}}
+            <br>{{item.tanggal | date:'dd/MM/yyyy'}} {{item.jam_mulai}} ~ {{(item.jam_selesai)?item.jam_selesai:'Selesai'}}
+            <br>Kajian Rutin, Umum</p>
+          <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          <ion-option-button class="button-dark">Jadwalkan</ion-option-button>
+        </ion-item> -->
+
+        <!-- <ion-item class="item-thumbnail-left item-icon-right" id="daftarBagiKajian-list-item32" ui-sref="bagiKajianEdit()">
+          <img src="img/dDYYHUGvT1iRpJSbACuk_photo_2018-09-21_08-23-32.jpg">
+          <h2>Kajian Tematik</h2>
+          <p style="white-space:normal;">
+            <b>Nama Ustdz Pengisi Kajian</b>
+            <br>Masjid Tempat Kajian
+            <br>Bandung
+            <br>27/10/2018 09:00 ~ Selesai
+            <br>Kajian Rutin, Umum</p>
+          <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          <ion-option-button class="button-assertive">Hapus</ion-option-button>
+        </ion-item>
+        <ion-item class="item-thumbnail-left item-icon-right" id="daftarBagiKajian-list-item35" ui-sref="bagiKajianEdit()">
+          <img src="img/dDYYHUGvT1iRpJSbACuk_photo_2018-09-21_08-23-32.jpg">
+          <h2>Kajian Tematik</h2>
+          <p style="white-space:normal;">
+            <b>Nama Ustdz Pengisi Kajian</b>
+            <br>Masjid Tempat Kajian
+            <br>Bandung
+            <br>27/10/2018 09:00 ~ Selesai
+            <br>Kajian Rutin, Umum</p>
+          <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          <ion-option-button class="button-assertive">Hapus</ion-option-button>
+        </ion-item> -->
+      </ion-list>
+      <button ng-if="vm.showPageAction" id="daftarBagiKajian-button28" ng-click="vm.pagingAction('clicked', vm.frmSearch.currentPage, vm.frmSearch.pageSize, vm.frmSearch.total)" class="button button-stable button-full icon ion-ios-more-outline"></button>
+    </form>
+  </ion-content>
+</ion-view>

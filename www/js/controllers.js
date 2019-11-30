@@ -1,56 +1,203 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [
+    'app.controller.info_kajian',
+    'app.controller.bagi_kajian',
+    'app.controller.login',
+    'app.controller.daftar'
+])
+  
+// .controller('infoKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+// }])
+   
+// .controller('detailKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
 
-  // Form data for the login modal
-  $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+// }])
+   
+.controller('detailKajianSayaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+}])
+   
+.controller('lokasiKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
+}])
+   
+.controller('lokasiKajianSayaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+}])
+   
+.controller('videoKajianCtrl', ['$scope', '$stateParams', 'InfoKajian', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, InfoKajian) {
+
+    var vm = this;
+    vm.id = $stateParams.id;
+    vm.data = {};
+
+    loadData(vm.id)
+
+    function loadData(id) {
+      InfoKajian.get(id, function (res) {
+        vm.data = res.data;
+        vm.youtube_url = "https://www.youtube.com/embed/" + vm.data.ytbid_video_kajian + "?rel=0&amp;showinfo=0&quot;";
+        // console.log(res);
+
+      }, function (e) {
+        if (e && e.status_code === 401) {
+          Account.reloadToken();
+        }
+      });
+    }
+
+}])
+   
+.controller('profilCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('kajianTerdekatCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('jadwalSayaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+// .controller('bagiKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+   
+// .controller('bagiKajianEditCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+   
+// .controller('uploadPhotoCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+   
+.controller('uploadPhotoEditCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('cariKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('tagsKajianCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('tagsKajianBagiCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+.controller('tagsKajianBagiEditCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+      
+.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+  
+   
+// .controller('daftarCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+   
+.controller('tentangCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams) {
+
+
+}])
+   
+   
+// .controller('pilihKotaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+   
+// .controller('pilihKota2Ctrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// // You can include any angular dependencies as parameters for this function
+// // TIP: Access Route Parameters for your page via $stateParams.parameterName
+// function ($scope, $stateParams) {
+
+
+// }])
+ 

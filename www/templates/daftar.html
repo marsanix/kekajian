@@ -1,0 +1,27 @@
+<ion-view title="Daftar" hide-nav-bar="true" cache-view="false" nav-transition="none" id="page9" class="side-menu-gradient">
+  <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false">
+    <form id="daftar-form2" class="list center-form" ng-submit="vm.submitDaftar(vm.frmDaftar)">
+      <div class="spacer" style="width: 320px; height: 64px;"></div>
+      <div>
+        <img src="img/juqRkYBwSV6AiDLIAdf8_open-magazine.png" style="display: block; width: 35%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <h3 id="daftar-heading3" style="color:#444444;font-weight:300;text-align:center;" class="register-title">keKajian</h3>
+      <div class="spacer" style="width: 320px; height: 23px;"></div>
+      <ion-list id="daftar-list3">
+        <label class="item item-input" id="daftar-input3">
+          <input type="text" ng-model="vm.frmDaftar.name" placeholder="Nama">
+        </label>
+        <label class="item item-input" id="daftar-input4">
+          <input type="email" ng-model="vm.frmDaftar.email" placeholder="Email">
+        </label>
+        <label class="item item-input" id="daftar-input5">
+          <input type="text" ng-model="vm.frmDaftar.password" placeholder="Password">
+        </label>
+      </ion-list>
+      <button type="submit" id="daftar-button4" class="button button-dark button-block">Daftar</button>
+      <div style="margin-right:-20px;">
+        <a ui-sref="masuk()" id="daftar-button5" style="left:-10px;" class="button button-dark button-full button-clear icon ion-ios-undo-outline"></a>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,105 @@
+<ion-view title="Bagi Kajian" id="page7">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-ios-help-outline"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <ion-slides ng-if="vm.frmAdd.photos" disable-side-menu-drag="" options="{'loop': true}" slider="slider3" delegate-handle="slider3" id="bagiKajian-slider3" style="width:100%;height:inherit;">
+      <!-- <ion-slide-page ng-if="!vm.frmAdd.photos" id="bagiKajian-slide210" style="background:url(&quot;img/logo.png&quot;) no-repeat center;background-size:50%;"></ion-slide-page> -->
+      <ion-slide-page id="bagiKajian-slide210" ng-repeat="image in vm.frmAdd.photos" style="background:url(&quot;{{image.photo}}&quot;) no-repeat center;background-size:cover;"></ion-slide-page>
+      <!-- <ion-slide-page id="bagiKajian-slide211" style="background:url(&quot;img/0CD7qGggTeayecPOqdFT_kajian-Jumat.png&quot;) no-repeat center;background-size:cover;"></ion-slide-page> -->
+    </ion-slides>
+    <div id="bagiKajian-container6" class="text-center">
+      <div class="spacer" style="width: 320px; height: 7px;"></div>
+      <a ui-sref="uploadPhoto()" id="bagiKajian-button21" class="button button-dark bagi-kajian-btn-upload-photo">Upload Photo</a>
+    </div>
+    <div class="spacer" style="width: 320px; height: 8px;"></div>
+    <ion-list id="bagiKajian-list12">
+      <ion-item class="item-divider list-divider-gradient" id="bagiKajian-list-item-divider12"> Photo Slide</ion-item>
+    </ion-list>
+    <ion-list id="bagiKajian-list13">
+      <ion-item ng-repeat="photo in vm.frmAdd.photos" class="item-icon-right bagi-kajian-photo" id="bagiKajian-list-item18">Photo {{$index + 1}}
+        <span ng-if="photo.cover" class="item-note">Cover</span>
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+        <ion-option-button ng-click="vm.setCoverPhoto($event, $index, photo)" class="button-dark">Cover</ion-option-button>
+        <ion-option-button ng-click="vm.removePhoto($event, $index, photo)" class="button-assertive">Hapus</ion-option-button>
+      </ion-item>
+      <!-- <ion-item class="item-icon-right" id="bagiKajian-list-item19">Photo 2
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+        <ion-option-button class="button-dark">Cover</ion-option-button>
+        <ion-option-button class="button-assertive">Hapus</ion-option-button>
+      </ion-item> -->
+    </ion-list>
+    <form id="bagiKajian-form10" class="list">
+      <ion-item class="item-divider list-divider-gradient" id="bagiKajian-list-item-divider6"> Info Kajian</ion-item>
+      <label class="item item-input item-stacked-label required" id="bagiKajian-input21">
+        <span class="input-label">Tema</span>
+        <input type="text" ng-model="vm.frmAdd.tema" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label required" id="bagiKajian-input20">
+        <span class="input-label">Pemateri 1</span>
+        <input type="text" ng-model="vm.frmAdd.pemateri" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input40">
+        <span class="input-label">Pemateri 2</span>
+        <input type="text" ng-model="vm.frmAdd.pemateri2" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label required" id="bagiKajian-textarea1">
+        <span class="input-label">Tempat</span><textarea ng-model="vm.frmAdd.tempat" placeholder="..."></textarea></label>
+      <ion-item class="item-icon-right bagi-kajian-kota required" id="bagiKajian-list-item15" ui-sref="pilihKota()">Kota
+        <span class="item-note">{{(vm.frmAdd.kota_id)?vm.selectedKota.nama:'Pilih kota'}}</span>
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+      </ion-item>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input29">
+        <span class="input-label">Link maps</span>
+        <input type="text" ng-model="vm.frmAdd.link_maps" placeholder="...">
+      </label>
+      <label class="item item-input required" id="bagiKajian-input23">
+        <span class="input-label">Tanggal</span>
+        <input type="date" ng-model="vm.frmAdd.tanggal" placeholder="">
+      </label>
+      <label class="item item-input required" id="bagiKajian-input24">
+        <span class="input-label">Jam mulai</span>
+        <input type="text" ng-model="vm.frmAdd.jam_mulai" placeholder="Ba'da Maghrib / 18:30">
+      </label>
+      <label class="item item-input" id="bagiKajian-input25">
+        <span class="input-label">Jam selesai</span>
+        <input type="text" ng-model="vm.frmAdd.jam_selesai" placeholder="Selesai">
+      </label>
+      <ion-item class="item-icon-right bagi-kajian-tags" id="bagiKajian-list-item12" ui-sref="tagsKajianBagi()">Tags
+        <span class="item-note">Pilih tags</span>
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-divider list-divider-gradient" id="bagiKajian-list-item-divider4"> Panitia</ion-item>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input26">
+        <span class="input-label">Penyelenggara</span>
+        <input type="text" ng-model="vm.frmAdd.penyelenggara" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input27">
+        <span class="input-label">Kontak ikhwan</span>
+        <input type="tel" ng-model="vm.frmAdd.kontak_ikhwan" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input30">
+        <span class="input-label">Kontak akhwat</span>
+        <input type="tel" ng-model="vm.frmAdd.kontak_akhwat" placeholder="...">
+      </label>
+      <ion-item class="item-divider list-divider-gradient" id="bagiKajian-list-item-divider5"> Catatan Lainnya</ion-item>
+      <label class="item item-input item-stacked-label" id="bagiKajian-textarea3">
+        <!-- <span class="input-label"></span> -->
+        <textarea ng-model="vm.frmAdd.keterangan" rows="7" placeholder="..."></textarea></label>
+      <ion-item class="item-divider list-divider-gradient" id="bagiKajian-list-item-divider7"> Link / ID Video Youtube</ion-item>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input28">
+        <span class="input-label">Video Cover</span>
+        <input type="text" ng-model="vm.frmAdd.link_video_cover" placeholder="...">
+      </label>
+      <label class="item item-input item-stacked-label" id="bagiKajian-input41">
+        <span class="input-label">Video Kajian</span>
+        <input type="text" ng-model="vm.frmAdd.link_video_kajian" placeholder="...">
+      </label>
+      <div id="bagiKajian-container11" class="text-center">
+        <div class="spacer" style="width: 320px; height: 10px;"></div>
+        <button id="bagiKajian-button13" ng-click="vm.frmSubmit(vm.frmAdd)" class="button button-dark btn-back btn-wide">Kirim</button>
+        <div class="spacer" style="width: 320px; height: 10px;"></div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

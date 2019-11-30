@@ -1,0 +1,13 @@
+<ion-view title="Pilih Kota" id="page24">
+  <ion-content padding="false" class="has-header">
+    <form id="pilihKota-form17" class="list">
+      <label class="item item-input" id="pilihKota-search8">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="vm.searchKeyword" ng-keyup="vm.searchKota()" placeholder="Cari kota...">
+      </label>
+      <ion-list id="pilihKota-list15">
+        <ion-item id="pilihKota-list-item{{ls.id}}" ng-click="vm.selectKota($event, ls)" ng-repeat="ls in vm.kotaLists">{{ls.nama}}</ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

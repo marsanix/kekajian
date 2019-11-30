@@ -1,0 +1,17 @@
+<ion-view title="Upload Photo" id="page17">
+  <ion-content padding="false" class="has-header">
+    <form id="uploadPhoto-form11" class="list">
+      <img id="tempImage" src="" alt="" style="width: 100%;" />
+      <div ng-if="!vm.imageBase64" style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">        
+        <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+      </div>
+      <div id="uploadPhoto-container3" class="text-center">
+        <div class="spacer" style="width: 320px; height: 12px;"></div>
+        <button ng-click="vm.uploadPhoto()" id="uploadPhoto-button20" class="button button-stable button-outline icon ion-image upload-photo-btn upload-photo-upload"></button>
+        <button ng-click="vm.removePhoto()" id="uploadPhoto-button22" class="button button-assertive icon ion-ios-trash-outline upload-photo-btn upload-photo-btn-hapus"></button>
+      </div>
+      <div class="spacer" style="width: 320px; height: 20px;"></div>
+      <a ng-click="vm.addToSlide()" id="uploadPhoto-button15" class="button button-dark button-block btn-back">Tambah ke slide</a>
+    </form>
+  </ion-content>
+</ion-view>

@@ -3,38 +3,168 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://localhost:8015 http://marsanis-macbook-pro.local/* 'unsafe-inline'; script-src 'self' http://localhost:8015 http://marsanis-macbook-pro.local/* 'unsafe-inline' 'unsafe-eval'; "> -->
     <title></title>
 
-    <link rel="manifest" href="manifest.json">
+    
+    
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
-
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <link href="css/ionic.app.css" rel="stylesheet">
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px; 
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+      .show-list-numbers-and-dots ul{
+        list-style-type: disc;
+        padding-left:40px;
+      }
+      .show-list-numbers-and-dots ol{
+        list-style-type: decimal;
+        padding-left:40px;
+      }
+    </style>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+    <script src="js/app.js"></script>    
     <script src="js/controllers.js"></script>
-  </head>
+    <script src="js/factories.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>    
+    <script src="js/modules.js"></script>    
 
-  <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
+    <!-- Info Kajian -->
+    <script src="js/modules/info-kajian/info-kajian.route.js"></script>
+    <script src="js/modules/info-kajian/info-kajian.factory.js"></script>
+    <script src="js/modules/info-kajian/info-kajian.controller.js"></script>
+    <script src="js/modules/info-kajian/detail/info-kajian-detail.route.js"></script>
+    <script src="js/modules/info-kajian/detail/info-kajian-detail.controller.js"></script>
+
+    <!-- Bagi Kajian -->
+    <script src="js/modules/bagi-kajian/bagi-kajian.route.js"></script>
+    <script src="js/modules/bagi-kajian/bagi-kajian.factory.js"></script>
+    <script src="js/modules/bagi-kajian/bagi-kajian.controller.js"></script>
+    <script src="js/modules/bagi-kajian/add/bagi-kajian-add.route.js"></script>
+    <script src="js/modules/bagi-kajian/add/bagi-kajian-add.controller.js"></script>
+    <script src="js/modules/bagi-kajian/add/bagi-kajian-add-kota.route.js"></script>
+    <script src="js/modules/bagi-kajian/add/bagi-kajian-add-kota.controller.js"></script>
+    <script src="js/modules/bagi-kajian/edit/bagi-kajian-edit.route.js"></script>
+    <script src="js/modules/bagi-kajian/edit/bagi-kajian-edit.controller.js"></script>
+    <script src="js/modules/bagi-kajian/edit/bagi-kajian-edit-kota.route.js"></script>
+    <script src="js/modules/bagi-kajian/edit/bagi-kajian-edit-kota.controller.js"></script>
+    <script src="js/modules/bagi-kajian/upload-photo/bagi-kajian-upload-photo.route.js"></script>
+    <script src="js/modules/bagi-kajian/upload-photo/bagi-kajian-upload-photo.controller.js"></script>
+
+    <!-- Login -->
+    <script src="js/modules/login/login.route.js"></script>
+    <script src="js/modules/login/login.controller.js"></script>
+
+    <!-- Daftar -->
+    <script src="js/modules/daftar/daftar.route.js"></script>
+    <script src="js/modules/daftar/daftar.controller.js"></script>
+     
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script src="lib/moment/min/moment-with-locales.min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="lib/angular-moment/angular-moment.min.js"></script>
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+  <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-light">
+        <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" id="side-menu21">
+      <ion-content ng-controller="menuCtrl" padding="false" style="top:0px !important;" class="side-menu-left side-menu-gradient">
+        <div class="spacer" data-componentid="spacer1" style="width: 268px; height: 26px;"></div>
+        <div data-componentid="image1">
+          <img src="img/logo.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+        </div>
+        <h3 id="menu-heading1" style="color:#444444;font-weight:300;text-align:center;" class="side-menu-title" data-componentid="heading1">keKajian</h3>
+        <div class="spacer" data-componentid="spacer2" style="width: 268px; height: 13px;"></div>
+        <ion-list id="menu-list1" data-componentid="list1">
+          <ion-item ng-if="isLogin" class="item-icon-left item-icon-right side-menu-item" id="menu-list-item4" ui-sref="profil()" menu-close="" data-componentid="list-item4">
+            <i class="icon ion-ios-contact-outline"></i>Profil
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right side-menu-item" id="menu-list-item5" ui-sref="tabsKajian.infoKajian()" menu-close="" data-componentid="list-item5">
+            <i class="icon ion-ios-book-outline"></i>Info Kajian
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right side-menu-item" id="menu-list-item6" ui-sref="cariKajian()" menu-close="" data-componentid="list-item6">
+            <i class="icon ion-ios-search"></i>Cari Kajian
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right side-menu-item" id="menu-list-item7" ui-sref="tabsKajian.kajianTerdekat()" menu-close="" data-componentid="list-item7">
+            <i class="icon ion-ios-location-outline"></i>Kajian Terdekat
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <ion-item ng-if="isLogin" class="item-icon-left item-icon-right side-menu-item" id="menu-list-item8" ui-sref="tabsKajian.jadwalSaya()" menu-close="" data-componentid="list-item8">
+            <i class="icon ion-ios-calendar-outline"></i>Jadwal Kajian Saya
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <!-- <ion-item class="item-icon-left item-icon-right side-menu-item" id="menu-list-item9" ui-sref="bagiKajian()" menu-close="" data-componentid="list-item9">
+            <i class="icon ion-ios-compose-outline"></i>Bagi Kajian
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item> -->
+          <ion-item ng-if="isLogin" class="item-icon-left item-icon-right side-menu-item" id="menu-list-item13" ui-sref="daftarBagiKajian()" menu-close="" data-componentid="list-item13">
+            <i class="icon ion-ios-list-outline"></i>Bagi Kajian
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right side-menu-item" id="menu-list-item10" ui-sref="tentang()" menu-close="" data-componentid="list-item10">
+            <i class="icon ion-ios-information-outline"></i>Tentang
+            <i class="icon ion-ios-arrow-right icon-accessory"></i>
+          </ion-item>
+        </ion-list>
+        <div class="spacer" data-componentid="spacer3" style="width: 268px; height: 22px;"></div>
+
+        <a ng-if="!isLogin" ui-sref="masuk()" menu-close="" id="menu-button1" class="button button-dark button-block side-menu-btn-signout" data-componentid="button1">Masuk</a>
+        <a ng-if="isLogin" ng-click="keluar()" menu-close="" id="menu-button1" class="button button-assertive button-block side-menu-btn-signout" data-componentid="button1">Keluar</a>
+
+        <div id="menu-markdown1" style="text-align:right;" class="show-list-numbers-and-dots side-menu-version" data-componentid="markdown1">
+          <p style="color:#666666;">keKajian v1.0</p>
+        </div>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</div>
   </body>
 </html>

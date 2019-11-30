@@ -1,0 +1,64 @@
+<ion-view title="Detail Kajian" id="page10">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-dark icon ion-ios-alarm-outline"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <div class="list card" id="detailKajian-card22">
+      <ion-item class="item-avatar" id="detailKajian-list-item27">
+        <img ng-src="img/BSSSg6SESQWQTea5pdnC_images">
+        <h2>{{vm.data.tema}}</h2>
+        <p style="white-space:normal;">{{vm.data.pemateri}}</p>
+      </ion-item>
+      <ion-slides disable-side-menu-drag="" options="{'loop': true}" slider="slider1" delegate-handle="slider1" id="detailKajian-slider1" style="width:100%;height:200px;">
+        <ion-slide-page ng-repeat="photo in vm.data.photos" id="detailKajian-slide{{photo.id}}" style="background:url(&quot;{{photo.photo}}&quot;) no-repeat center;background-size:cover;"></ion-slide-page>
+        <!-- <ion-slide-page id="detailKajian-slide25" style="background:url(&quot;img/Ht7WMNexRvCS84ns0DtJ_images&quot;) no-repeat center;background-size:cover;"></ion-slide-page>
+        <ion-slide-page id="detailKajian-slide26" style="background:url(&quot;img/1M7KcUhBRWm4Du8ZhiuD_images&quot;) no-repeat center;background-size:cover;"></ion-slide-page> -->
+      </ion-slides>
+      <div class="item item-body" id="detailKajian-list-item-container4">
+        <div id="detailKajian-markdown5" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">{{vm.data.tempat}}</p>
+        </div>
+        <div id="detailKajian-markdown9" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">Bekasi</p>
+        </div>
+        <div id="detailKajian-markdown6" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">13 Shafar 1440 H / 22 Oktober 2018</p>
+        </div>
+        <div id="detailKajian-markdown10" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">{{vm.data.jam_mulai}} – {{(vm.data.jam_selesai)?vm.data.jam_selesai:'Selesai'}}</p>
+        </div>
+        <div id="detailKajian-markdown7" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">Kajian Rutin, Umum</p>
+        </div>
+        <div id="detailKajian-markdown8" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">Rodja TV</p>
+        </div>
+        <div id="detailKajian-markdown24" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            <em>#adab</em> #muamalah</p>
+        </div>
+      </div>
+      <ion-item ng-if="vm.data.kontak_ikhwan" class="item-icon-left dark" id="detailKajian-list-item28" href="tel:{{vm.data.kontak_ikhwan}}">
+        <i class="icon ion-ios-telephone-outline"></i>Hubungi Panitia
+        <span class="item-note">Ikhwan</span>
+      </ion-item>
+      <ion-item ng-if="vm.data.kontak_akhwat" class="item-icon-left dark" id="detailKajian-list-item34" href="tel:{{vm.data.kontak_akhwat}}">
+        <i class="icon ion-ios-telephone-outline"></i>Hubungi Panitia
+        <span class="item-note">Akhwat</span>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right dark" id="detailKajian-list-item33" ui-sref="lokasiKajian()">
+        <i class="icon ion-ios-location-outline"></i>Lihat Maps
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+      </ion-item>
+      <ion-item ng-if="vm.data.link_video_kajian" class="item-icon-left item-icon-right dark" id="detailKajian-list-item29" ui-sref="videoKajian({id:vm.data.id})">
+        <i class="icon ion-ios-play-outline"></i>Putar Video
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right dark" id="detailKajian-list-item11">
+        <i class="icon ion-ios-alarm-outline"></i>Tambah ke Jadwal Saya
+        <i class="icon ion-ios-arrow-right icon-accessory"></i>
+      </ion-item>
+    </div>
+    <a ui-sref="tabsKajian.infoKajian()" id="detailKajian-button8" class="button button-stable button-block icon ion-ios-arrow-thin-left btn-back"></a>
+  </ion-content>
+</ion-view>

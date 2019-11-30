@@ -1,7 +1,8 @@
 {
   "name": "keKajian",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "gulp": {}
   },
   "type": "ionic1",
   "watchPatterns": [
@@ -10,5 +11,6 @@
     "!www/lib/**/*",
     "!www/**/*.map"
   ],
-  "pro_id": "4339901a"
+  "pro_id": "4339901a",
+  "id": "4339901a"
 }
